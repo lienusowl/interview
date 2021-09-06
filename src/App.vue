@@ -1,28 +1,40 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <MenuCircle :rays="info.data"></MenuCircle>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MenuCircle from './components/MenuCircle';
+import axios from 'axios';
+
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    MenuCircle,
+  },
+  data() {
+    return {
+      info: null,
+    };
+  },
+  beforeCreate() {
+    axios
+    .get('http://elma-test-task.tmweb.ru/radial-menu')
+    .then(response => (this.info = response))
+    .catch(error => console.log(error));
+  },
+
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+
+body{
+  background: #eee;
 }
+
+
+
 </style>
