@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <MenuCircle :rays="info.data"></MenuCircle>
+    <MenuCircle v-if="info" :rays="info.data"></MenuCircle>
   </div>
 </template>
 
@@ -31,10 +31,8 @@ export default {
 
 <style>
 
-body{
-  background: #eee;
+body {
+  background-color: #868686;
 }
-
-
 
 </style>

@@ -2,16 +2,28 @@
   <div>
 
     <div class="flexer">
+<!--      <div class="flexer-border"></div>-->
+      <svg class="chart" width="240" height="240" viewBox="0 0 50 50" >
+        <circle
+            class="unit"
+            :r="numRadius+'%'"
+            cx="50%"
+            cy="50%"
+            v-for="axis in rays"
+            v-bind:key="axis"
+            :style="'stroke-dasharray:20;' + {'stroke-dashoffset:': getDeg(axis)}">
+            </circle>
+      </svg>
+
       <div class="menu"
            :class="{ animated: useTransitions }"
            :style="{'--menu-rotation': `${menuRotation}deg`}">
-        <div class="center" >перетаскивалка</div>
-        <div v-for="axis in $attrs.rays.length"
-             v-bind:key="axis"
 
+        <div v-for="(axis, key) in rays"
+             v-bind:key="axis"
              class="axis"
              :class="{ closed: !isMenuOpen, active: isActive(axis) }"
-             :style="{'--axis-rotation': `${360 * (axis - 1) / buttonsCount()}deg`}">
+             :style="{'--axis-rotation': getDeg(key)+'deg'}">
           <a @click="goToTop(axis)" >
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5 9.12269C17.4145 8.38963 18 7.26319 18 6V18.5C18 18.8978 17.842 19.2794 17.5607 19.5607C17.2794 19.842 16.8978 20 16.5 20H3.5C3.10218 20 2.72064 19.842 2.43934 19.5607C2.15804 19.2794 2 18.8978 2 18.5V5.5C2 5.10218 2.15804 4.72064 2.43934 4.43934C2.72064 4.15804 3.10218 4 3.5 4L10.5351 4C10.2739 4.45161 10.0984 4.95903 10.0309 5.5H3.5V18.5H16.5V9.12269ZM17.8032 4.75719C17.931 4.98156 18 5.23722 18 5.5V6C18 5.56613 17.9309 5.14839 17.8032 4.75719ZM5.52583 17.3333H14.4252C15.1143 17.3333 15.5221 16.5625 15.1335 15.9925L11.7854 11.0819C11.7067 10.9666 11.601 10.8724 11.4775 10.8072C11.3541 10.742 11.2166 10.708 11.0771 10.708C10.9375 10.708 10.8 10.742 10.6766 10.8072C10.5532 10.8724 10.4475 10.9666 10.3687 11.0819L9.01749 13.0625L8.65624 12.5533C8.57694 12.4417 8.47207 12.3506 8.35038 12.2878C8.22869 12.2249 8.09372 12.1922 7.95676 12.1922C7.81981 12.1922 7.68484 12.2249 7.56315 12.2878C7.44146 12.3506 7.33659 12.4417 7.25729 12.5533L4.82646 15.9791C4.42334 16.5473 4.82938 17.3333 5.52583 17.3333Z" fill="black"/>
@@ -32,33 +44,43 @@
 
 export default {
   name: 'MenuCircle',
-  props: {
 
+  data: function () {
+    return {
+      useTransitions: true,
+      isMenuOpen: true,
+      rotation: -0,
+      bCount: this.rays.length
+    }
   },
-  data: () => ({
-    useTransitions: true,
-    isMenuOpen: true,
-    rotation: -0
-  }),
+  props: {
+    rays: {type: Array}
+  },
   computed: {
-
+    numRadius() {
+      return 100 / this.rays.length;
+    },
     axisRotations() {
       return Array.from({
         length: this.buttonsCount()
-      }).map((_, i) => 360 * (this.buttonsCount() - i) / this.buttonsCount())
+      }).map((_, i) => 360 * (this.buttonsCount() - i) / this.buttonsCount());
+
     },
     menuRotation: {
       get() {
         return this.rotation
       },
       set(val) {
-        this.rotation = isNaN(Number(val)) ? -90 : Number(val)
+        this.rotation = isNaN(Number(val)) ? -0 : Number(val)
       }
     }
   },
   methods: {
+    getDeg(key){
+      return 360 * (key - 1) / this.bCount;
+    },
     buttonsCount() {
-      return `${this.$attrs.rays.length}`
+      return `${this.rays.length}`
     },
     goToTop(axis) {
       let diff = this.degreesToTop(axis);
@@ -84,12 +106,8 @@ export default {
 </script>
 
 
-<style scoped>
-.center{
-  background: bisque;
-  width: 50px;
-  height: 50px;
-}
+<style>
+
 .menu {
   width: 0;
   height: 0;
@@ -129,8 +147,7 @@ export default {
 
 .axis.closed a,
 .axis.active a {
-  color: white;
-  background: rgba(0, 0, 0, 0.2);
+  /*background: rgba(0, 0, 0, 0.2);*/
 }
 
 .axis.active:not(.closed) {
@@ -138,7 +155,7 @@ export default {
 }
 
 .axis a {
-  background-color: white;
+
   cursor: pointer;
   width: 54px;
   height: 54px;
@@ -147,16 +164,35 @@ export default {
   align-items: center;
   justify-content: center;
   border-radius: 0;
-  border: 1px solid #eee;
   transform: rotate(calc(calc(-1 * var(--axis-rotation)) - var(--menu-rotation))) translateZ(0);
   outline: none;
 }
 
 .flexer {
   display: flex;
-  height: 240px;
-  padding-left: 220px;
+  height: 220px;
+  position: relative;
+  width: 220px;
+  justify-content: space-between;
+  align-items: center;
 }
+.flexer-border{
+  content: '';
+  background: transparent;
+  border: 55px solid #fff;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 5px;
+  right: 0;
+  top: 5px;
+  bottom: 0;
+}
+
+
+
+
 
 
 input {
@@ -179,8 +215,65 @@ label {
   transition: transform .35s cubic-bezier(.4, 0, .2, 1);
 }
 
-body {
-  background-color: #f8f8f8;
+
+.unit {
+  fill: #fff;
+  stroke-width: 10;
+  animation-name: render;
+  animation-duration: 1s;
+  width: 220px;
+  height: 220px;
 }
 
+.unit:hover{
+  fill:#eee;
+
+}
+
+/*.unit:nth-child(1) {*/
+/*  stroke: #fff;*/
+
+/*}*/
+/*.unit:nth-child(2) {*/
+/*  stroke: #fff;*/
+
+/*}*/
+/*.unit:nth-child(3) {*/
+/*  stroke: #eee;*/
+/*}*/
+/*.unit:nth-child(4) {*/
+/*  stroke: #333;*/
+
+/*}*/
+/*.unit:nth-child(5) {*/
+/*  stroke: #fff;*/
+
+/*}*/
+/*.unit:nth-child(6) {*/
+/*  stroke: #333;*/
+
+/*}*/
+/*.unit:nth-child(7) {*/
+/*  stroke: #eee;*/
+
+/*}*/
+/*.unit:nth-child(8) {*/
+/*  stroke: #fff;*/
+
+/*}*/
+/*.unit:nth-child(9) {*/
+/*  stroke: #333;*/
+
+/*}*/
+/*.unit:nth-child(10) {*/
+/*  stroke: #eee;*/
+
+/*}*/
+
+
+@keyframes render {
+  0% {
+    stroke-dasharray: 0 100;
+  }
+}
 </style>
