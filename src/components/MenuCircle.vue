@@ -22,8 +22,8 @@
             stroke="#fff"
 
 
-            :stroke-dasharray="strokeDasharray"
-            stroke-dashoffset="0"
+            :stroke-dasharray="numRadius"
+            :stroke-dashoffset="numRadius+key*numRadius"
         >
         </circle>
       </svg>
@@ -71,10 +71,11 @@ export default {
   },
   computed: {
     numRadius() {
-      return Math.round(100 / this.rays.length);
+      return Math.round(95 / this.rays.length);
     },
+
     numRadiusDash() {
-      return Math.round(100 - 100 / this.rays.length);
+      return Math.round(95 - 95 / this.rays.length);
     },
     strokeDasharray() {
       return `${Math.round(95 / this.rays.length)} ${Math.round(95 - 95 / this.rays.length)}`
@@ -83,7 +84,6 @@ export default {
       return Array.from({
         length: this.buttonsCount()
       }).map((_, i) => 360 * (this.buttonsCount() - i) / this.buttonsCount());
-
     },
     menuRotation: {
       get() {
