@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-    <MenuCircle v-if="info" :rays="info.data"></MenuCircle>
+    <div>
+
+      <MenuCircle v-if="info" :rays="info.data"></MenuCircle>
+
+    </div>
   </div>
 </template>
 
@@ -9,10 +13,12 @@ import MenuCircle from './components/MenuCircle';
 import axios from 'axios';
 
 
+
 export default {
   name: 'App',
   components: {
     MenuCircle,
+
   },
   data() {
     return {
@@ -32,7 +38,7 @@ export default {
 <style>
 
 body {
-  background-color: #868686;
+  background: #666;
 }
 
 </style>

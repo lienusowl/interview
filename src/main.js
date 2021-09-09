@@ -7,5 +7,6 @@ new Vue({
   render: h => h(App),
 }).$mount('#app')
 
-
+import movable from "v-movable";
+Vue.use(movable);
 
