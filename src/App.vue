@@ -2,7 +2,7 @@
   <div id="app">
     <div>
 
-      <MenuCircle v-if="info" :rays="info.data"></MenuCircle>
+      <MenuCircle v-if="info" :rays="info.data" v-draggable></MenuCircle>
 
     </div>
   </div>
@@ -31,7 +31,7 @@ export default {
     .then(response => (this.info = response))
     .catch(error => console.log(error));
   },
-
+  
 }
 </script>
 
