@@ -22,6 +22,7 @@
               v-bind:key="key"
               :stroke-dasharray="numRadiusDash(key)"
               :stroke-dashoffset="strokeDashoffset(key)"
+              @click="goToTop(key)"
           />
 
         </svg>
@@ -96,8 +97,9 @@ export default {
     }
   },
   methods: {
+
     onWheel(event){
-      const perDeg = 360 / this.rays.length / 1000;
+      const perDeg = 360 / this.rays.length / 10;
       if (event.deltaY < 0) {
         this.rotation -= perDeg;
       } else {
@@ -146,6 +148,7 @@ export default {
 
 
 <style>
+
 .donut-menu {
   display: flex;
   height: 220px;
@@ -154,13 +157,23 @@ export default {
   justify-content: center;
   align-items: center;
 }
+.donut-menu:before{
+  content:'';
+  width: 100px;
+  height: 100px;
+  background: transparent;
+  border-radius: 50%;
+  position: absolute;
+  border: 60px solid #fff;
+}
+
 .donut-border{
   width: 100px;
   height: 100px;
   background: transparent;
   border-radius: 50%;
   position: relative;
-  border: 60px solid #fff;
+
 }
 
 .donut-border svg{
@@ -168,15 +181,18 @@ export default {
   position: absolute;
   top: -60px;
   left: -60px;
-
+  z-index: 1;
 }
 .donut-border svg .circle-inner{
   /*stroke-dasharray: 1 20;*/
   fill:transparent;
-  stroke: #fff;
+  stroke: transparent;
+  transition: all .3s;
 }
 .donut-border svg .circle-inner:hover{
-  stroke: #ccc;
+  stroke: #222;
+  opacity: .2;
+  cursor: pointer;
 }
 
 .menu {
