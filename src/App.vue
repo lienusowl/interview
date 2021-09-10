@@ -66,9 +66,10 @@ export default {
 </script>
 
 <style>
-
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 body {
-  background: #666;
+  background: url('https://images.pexels.com/photos/1408221/pexels-photo-1408221.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260') center top no-repeat;
+  font-family: 'Open Sans', sans-serif;
 }
 
 </style>

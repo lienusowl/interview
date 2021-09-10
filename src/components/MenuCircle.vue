@@ -96,7 +96,7 @@ export default {
   },
   methods: {
     onWheel(event){
-      const perDeg = 360 / this.rays.length / 50;
+      const perDeg = 360 / this.rays.length / 1000;
       if (event.deltaY < 0) {
         this.rotation -= perDeg;
       } else {
@@ -230,6 +230,10 @@ export default {
   font-size: 9px;
 }
 
+.axis a::selection {
+
+  background: #fff;
+}
 
 
 
