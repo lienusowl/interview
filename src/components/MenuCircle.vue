@@ -18,8 +18,12 @@
               r="80"
               cx="50%"
               cy="50%"
-              :stroke-dasharray="numRadiusDash"
+              v-for="(axis, key) in rays"
+              v-bind:key="key"
+              :stroke-dasharray="numRadiusDash(key)"
+              :stroke-dashoffset="strokeDashoffset(key)"
           />
+
         </svg>
       </div>
 
@@ -60,7 +64,7 @@ export default {
       isMenuOpen: true,
       rotation: -0,
       bCount: this.rays.length,
-
+      radius: 80
     }
   },
   props: {
@@ -68,9 +72,6 @@ export default {
   },
   computed: {
 
-    numRadiusDash() {
-      return '1 ' +  80*Math.PI*2 / this.rays.length;
-    },
 
     axisRotations() {
       return Array.from({
@@ -106,6 +107,14 @@ export default {
     },
     getDeg(key){
       return 360 * (key - 1) / this.bCount;
+    },
+    numRadiusDash(key) {
+      let dash = Math.round(2*Math.PI*this.radius / this.bCount + (key*0));
+      return `${dash} ` + 2*Math.PI*this.radius
+    },
+    strokeDashoffset(key) {
+      let dash = Math.round(2*Math.PI*this.radius / this.bCount);
+      return -dash*key
     },
     buttonsCount() {
       return `${this.rays.length}`
@@ -164,9 +173,11 @@ export default {
 .donut-border svg .circle-inner{
   /*stroke-dasharray: 1 20;*/
   fill:transparent;
+  stroke: #fff;
+}
+.donut-border svg .circle-inner:hover{
   stroke: #ccc;
 }
-
 
 .menu {
   width: 0;
