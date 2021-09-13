@@ -18,7 +18,7 @@
               cy="50%"
               v-for="(axis, key) in rays"
               v-bind:key="key"
-              :r="this.radius"
+              :r="80"
               :stroke-dasharray="numRadiusDash(key)"
               :stroke-dashoffset="strokeDashoffset(key)"
               @click="goToTop(key)"
@@ -89,13 +89,11 @@ export default {
     }
   },
   methods: {
-
     onWheel(event){
       const perDeg = 360 / this.rays.length / 10;
       if (event.deltaY < 0) {
         this.rotation -= perDeg;
       } else {
-
         this.rotation += perDeg;
       }
     },
@@ -114,7 +112,6 @@ export default {
       return `${this.rays.length}`
     },
     goToTop(axis) {
-
       let diff = this.degreesToTop(axis);
       // в какую сторону будем поворачивать меню
       diff = diff > 180 ? diff - 360 : diff <= -180
@@ -130,11 +127,10 @@ export default {
   }
 };
 
-
 </script>
 
 
-<style>
+<style lang="scss">
 
 .donut-menu {
   display: flex;
@@ -143,43 +139,40 @@ export default {
   width: 220px;
   justify-content: center;
   align-items: center;
+  &:before {
+    content: '';
+    width: 100px;
+    height: 100px;
+    background: transparent;
+    border-radius: 50%;
+    position: absolute;
+    border: 60px solid #fff;
+  }
 }
-.donut-menu:before{
-  content:'';
-  width: 100px;
-  height: 100px;
-  background: transparent;
-  border-radius: 50%;
-  position: absolute;
-  border: 60px solid #fff;
-}
-
-.donut-border{
+.donut-border {
   width: 100px;
   height: 100px;
   background: transparent;
   border-radius: 50%;
   position: relative;
+  svg {
+    border-radius: 50%;
+    position: absolute;
+    top: -60px;
+    left: -60px;
+    z-index: 1;
+    .circle-inner {
+      fill: transparent;
+      stroke: transparent;
+      transition: all .3s;
+      &:hover {
+        stroke: #222;
+        opacity: .2;
+        cursor: pointer;
+      }
+    }
+  }
 }
-
-.donut-border svg{
-  border-radius:50%;
-  position: absolute;
-  top: -60px;
-  left: -60px;
-  z-index: 1;
-}
-.donut-border svg .circle-inner{
-  fill:transparent;
-  stroke: transparent;
-  transition: all .3s;
-}
-.donut-border svg .circle-inner:hover{
-  stroke: #222;
-  opacity: .2;
-  cursor: pointer;
-}
-
 .menu {
   width: 0;
   height: 0;
@@ -192,8 +185,24 @@ export default {
   transform: rotate(var(--menu-rotation));
   --menu-rotation: 0deg;
 }
-
-.menu .axis {
+.animated {
+  .axis.axis {
+    transition: all .54s cubic-bezier(.4, 0, .2, 1);
+  }
+  transition: transform .3s linear;
+  .axis {
+    transition: transform .3s linear;
+    >* {
+      transition: transform .3s linear;
+    }
+  }
+}
+.axis.active {
+  &:not(.closed) {
+    z-index: 1;
+  }
+}
+.axis {
   position: absolute;
   width: 100px;
   left: 0;
@@ -203,46 +212,29 @@ export default {
   justify-content: flex-end;
   transform-origin: 0 0;
   transform: rotate(var(--axis-rotation));
-}
-
-.animated .axis.axis {
-  transition: all .54s cubic-bezier(.4, 0, .2, 1);
-}
-
-.menu .axis.closed {
-  width: 27px;
-  transform: rotate(calc(var(--axis-rotation) + 180deg));
-  opacity: .1;
-}
-
-.axis.active:not(.closed) {
-  z-index: 1;
-}
-
-.axis a {
-  cursor: pointer;
-  width: 45px;
-  height: 45px;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0;
-  /* повернем при повороте меню */
-  transform: rotate(calc(calc(-1 * var(--axis-rotation)) - var(--menu-rotation))) translateZ(0);
-  outline: none;
-  flex-direction: column;
-  font-size: 9px;
-}
-
-.axis a::selection {
-  background: #fff;
-}
-
-.animated,
-.animated .axis,
-.animated .axis>* {
-  transition: transform .3s linear;
+  a {
+    cursor: pointer;
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+    /* повернем при повороте меню */
+    transform: rotate(calc(calc(-1 * var(--axis-rotation)) - var(--menu-rotation))) translateZ(0);
+    outline: none;
+    flex-direction: column;
+    font-size: 9px;
+    &.closed{
+        width: 27px;
+        transform: rotate(calc(var(--axis-rotation) + 180deg));
+        opacity: .1;
+    }
+    &::selection {
+      background: #fff;
+    }
+  }
 }
 
 </style>
