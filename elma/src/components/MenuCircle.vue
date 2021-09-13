@@ -19,7 +19,7 @@
               v-for="(axis, key) in rays"
               v-bind:key="key"
               :r="80"
-              :stroke-dasharray="numRadiusDash(key)"
+              :stroke-dasharray="numRadiusDash"
               :stroke-dashoffset="strokeDashoffset(key)"
               @click="goToTop(key)"
           />
@@ -66,6 +66,10 @@ export default {
     rays: {type: Array}
   },
   computed: {
+    numRadiusDash() {
+      let dash = Math.round(2*Math.PI*this.radius / this.bCount);
+      return `${dash} ` + 2*Math.PI*this.radius
+    },
     axisRotations() {
       return Array.from({
         length: this.buttonsCount()
@@ -79,6 +83,7 @@ export default {
         this.rotation = isNaN(Number(val)) ? -0 : Number(val)
       }
     },
+    // TODO:нужен градус отклонения, вместо 45, чтобы выровнять фоновую подсветку у пунктов меню
     donutRotation: {
       get() {
         return this.rotation * 2 - 45
@@ -89,8 +94,9 @@ export default {
     }
   },
   methods: {
+    // TODO: нужно найти подходящее значение для плавной прокрутки колесиком мышки
     onWheel(event){
-      const perDeg = 360 / this.rays.length / 10;
+      const perDeg = 360 / this.rays.length / 5;
       if (event.deltaY < 0) {
         this.rotation -= perDeg;
       } else {
@@ -99,10 +105,6 @@ export default {
     },
     getDeg(key){
       return 360 * (key - 1) / this.bCount;
-    },
-    numRadiusDash(key) {
-      let dash = Math.round(2*Math.PI*this.radius / this.bCount + (key*0));
-      return `${dash} ` + 2*Math.PI*this.radius
     },
     strokeDashoffset(key) {
       let dash = Math.round(2*Math.PI*this.radius / this.bCount);
@@ -185,18 +187,7 @@ export default {
   transform: rotate(var(--menu-rotation));
   --menu-rotation: 0deg;
 }
-.animated {
-  .axis.axis {
-    transition: all .54s cubic-bezier(.4, 0, .2, 1);
-  }
-  transition: transform .3s linear;
-  .axis {
-    transition: transform .3s linear;
-    >* {
-      transition: transform .3s linear;
-    }
-  }
-}
+
 .axis.active {
   &:not(.closed) {
     z-index: 1;
@@ -233,6 +224,18 @@ export default {
     }
     &::selection {
       background: #fff;
+    }
+  }
+}
+.animated {
+  .axis.axis {
+    transition: all .54s cubic-bezier(.4, 0, .2, 1);
+  }
+  transition: transform .3s linear;
+  .axis {
+    transition: transform .3s linear;
+    >* {
+      transition: transform .3s linear;
     }
   }
 }
