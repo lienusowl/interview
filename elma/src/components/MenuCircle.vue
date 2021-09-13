@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <div class="donut-menu" @wheel.prevent="onWheel">
       <div class="donut-border">
         <svg
@@ -15,23 +14,20 @@
               stroke="#666"
               stroke-width="60"
               fill="transparent"
-              r="80"
               cx="50%"
               cy="50%"
               v-for="(axis, key) in rays"
               v-bind:key="key"
+              :r="this.radius"
               :stroke-dasharray="numRadiusDash(key)"
               :stroke-dashoffset="strokeDashoffset(key)"
               @click="goToTop(key)"
           />
-
         </svg>
       </div>
-
       <div class="menu"
            :class="{ animated: useTransitions }"
            :style="{'--menu-rotation': `${menuRotation}deg`}">
-
         <div v-for="(axis, key) in rays"
              v-bind:key="key"
              class="axis"
@@ -45,9 +41,7 @@
             <span>{{axis}}</span>
           </a>
         </div>
-
       </div>
-
     </div>
 
   </div>
@@ -72,8 +66,6 @@ export default {
     rays: {type: Array}
   },
   computed: {
-
-
     axisRotations() {
       return Array.from({
         length: this.buttonsCount()
@@ -124,12 +116,9 @@ export default {
     goToTop(axis) {
 
       let diff = this.degreesToTop(axis);
-
-      diff = diff > 180
-          ? diff - 360
-          : diff <= -180
-              ? diff + 360
-              : diff;
+      // в какую сторону будем поворачивать меню
+      diff = diff > 180 ? diff - 360 : diff <= -180
+                        ? diff + 360 : diff;
       this.menuRotation = Math.round((this.menuRotation + diff) * 10) / 10;
     },
     degreesToTop(axis) {
@@ -138,9 +127,7 @@ export default {
     isActive(axis) {
       return !(this.degreesToTop(axis));
     },
-
   }
-
 };
 
 
@@ -173,7 +160,6 @@ export default {
   background: transparent;
   border-radius: 50%;
   position: relative;
-
 }
 
 .donut-border svg{
@@ -184,7 +170,6 @@ export default {
   z-index: 1;
 }
 .donut-border svg .circle-inner{
-  /*stroke-dasharray: 1 20;*/
   fill:transparent;
   stroke: transparent;
   transition: all .3s;
@@ -218,10 +203,7 @@ export default {
   justify-content: flex-end;
   transform-origin: 0 0;
   transform: rotate(var(--axis-rotation));
-
 }
-
-
 
 .animated .axis.axis {
   transition: all .54s cubic-bezier(.4, 0, .2, 1);
@@ -231,11 +213,6 @@ export default {
   width: 27px;
   transform: rotate(calc(var(--axis-rotation) + 180deg));
   opacity: .1;
-}
-
-.axis.closed a,
-.axis.active a {
-  /*background: rgba(0, 0, 0, 0.2);*/
 }
 
 .axis.active:not(.closed) {
@@ -251,6 +228,7 @@ export default {
   align-items: center;
   justify-content: center;
   border-radius: 0;
+  /* повернем при повороте меню */
   transform: rotate(calc(calc(-1 * var(--axis-rotation)) - var(--menu-rotation))) translateZ(0);
   outline: none;
   flex-direction: column;
@@ -258,13 +236,8 @@ export default {
 }
 
 .axis a::selection {
-
   background: #fff;
 }
-
-
-
-
 
 .animated,
 .animated .axis,
@@ -272,24 +245,4 @@ export default {
   transition: transform .3s linear;
 }
 
-
-.donut-segment {
-  fill: transparent;
-  animation-name: render;
-  animation-duration: 1s;
-  width: 240px;
-  height: 240px;
-}
-
-.donut-segment:hover{
-  stroke:#eee;
-}
-
-
-
-@keyframes render {
-  0% {
-    stroke-dasharray: 0 100;
-  }
-}
 </style>

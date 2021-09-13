@@ -1,9 +1,7 @@
 <template>
   <div id="app">
     <div>
-
       <MenuCircle v-if="info" :rays="info.data" v-draggable></MenuCircle>
-
     </div>
   </div>
 </template>
@@ -12,13 +10,10 @@
 import MenuCircle from './components/MenuCircle';
 import axios from 'axios';
 
-
-
 export default {
   name: 'App',
   components: {
     MenuCircle,
-
   },
   data() {
     return {
@@ -32,6 +27,7 @@ export default {
     .catch(error => console.log(error));
   },
   directives: {
+    // перемещаем и запоминаем последнее положение элемента
     draggable: {
       bind: function (el) {
         el.style.position = 'absolute';
@@ -66,10 +62,9 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
-body {
-  background: url('https://images.pexels.com/photos/1408221/pexels-photo-1408221.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260') center top no-repeat;
-  font-family: 'Open Sans', sans-serif;
-}
-
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+  body {
+    background: url('https://images.pexels.com/photos/1408221/pexels-photo-1408221.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260') center top no-repeat;
+    font-family: 'Open Sans', sans-serif;
+  }
 </style>
