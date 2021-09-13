@@ -157,6 +157,15 @@ export default {
   background: transparent;
   border-radius: 50%;
   position: relative;
+  &:before{
+    content: '';
+    width: 100px;
+    height: 100px;
+    background: transparent;
+    position: absolute;
+    z-index: 2;
+    border-radius: 50%;
+  }
   svg {
     border-radius: 50%;
     position: absolute;
