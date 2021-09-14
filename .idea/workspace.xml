@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="59d631fe-e03f-4698-9ddf-21b444db5871" name="Default Changelist" comment="fix - решение проблемы когда в центре при наведении меню выделяется первый элемент" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="new-branch" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="1xlZ229Fdf2Pi4L6GmICwLQsfkS" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager" selected="npm.build">
+    <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:8080">
+      <method v="2" />
+    </configuration>
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="npm serve" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="serve" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.build" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="59d631fe-e03f-4698-9ddf-21b444db5871" name="Default Changelist" comment="" />
+      <created>1630931424788</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1630931424788</updated>
+      <workItem from="1630931426211" duration="76695000" />
+      <workItem from="1631253388536" duration="15168000" />
+      <workItem from="1631513400259" duration="631000" />
+      <workItem from="1631514840846" duration="1692000" />
+    </task>
+    <task id="LOCAL-00001" summary="остальное завтра">
+      <created>1630961287627</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1630961287627</updated>
+    </task>
+    <task id="LOCAL-00002" summary="всё сломал начал круг делать">
+      <created>1631014696578</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1631014696578</updated>
+    </task>
+    <task id="LOCAL-00003" summary="пробуем исправить">
+      <created>1631074411103</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1631074411103</updated>
+    </task>
+    <task id="LOCAL-00004" summary="синхронный поворот меню и доната">
+      <created>1631083357794</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1631083357794</updated>
+    </task>
+    <task id="LOCAL-00005" summary="синхронный поворот меню и доната">
+      <created>1631121500285</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1631121500285</updated>
+    </task>
+    <task id="LOCAL-00006" summary="ну что, типа работает клик и скролл, но позиционирование элементов в лучах кривое">
+      <created>1631184692242</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1631184692242</updated>
+    </task>
+    <task id="LOCAL-00007" summary="корректировки в сборщик, чтоб был нормальный пусть до файлов">
+      <created>1631187034539</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1631187034539</updated>
+    </task>
+    <task id="LOCAL-00008" summary="перемещение элемента">
+      <created>1631187444046</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1631187444046</updated>
+    </task>
+    <task id="LOCAL-00009" summary="перемещение элемента">
+      <created>1631248357089</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1631248357089</updated>
+    </task>
+    <task id="LOCAL-00010" summary="сопоставление луча и элемента">
+      <created>1631272045603</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1631272045603</updated>
+    </task>
+    <task id="LOCAL-00011" summary="правки">
+      <created>1631289711109</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1631289711109</updated>
+    </task>
+    <task id="LOCAL-00012" summary="перенос в отдельную папку">
+      <created>1631290302638</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1631290302638</updated>
+    </task>
+    <task id="LOCAL-00013" summary="приборка">
+      <created>1631513133364</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1631513133364</updated>
+    </task>
+    <task id="LOCAL-00014" summary="приборка">
+      <created>1631514901699</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1631514901699</updated>
+    </task>
+    <task id="LOCAL-00015" summary="fix">
+      <created>1631530138011</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1631530138011</updated>
+    </task>
+    <task id="LOCAL-00016" summary="fix - решение проблемы когда в центре при наведении меню выделяется первый элемент">
+      <created>1631530526380</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1631530526380</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="остальное завтра" />
+    <MESSAGE value="всё сломал начал круг делать" />
+    <MESSAGE value="пробуем исправить" />
+    <MESSAGE value="синхронный поворот меню и доната" />
+    <MESSAGE value="ну что, типа работает клик и скролл, но позиционирование элементов в лучах кривое" />
+    <MESSAGE value="корректировки в сборщик, чтоб был нормальный пусть до файлов" />
+    <MESSAGE value="перемещение элемента" />
+    <MESSAGE value="сопоставление луча и элемента" />
+    <MESSAGE value="правки" />
+    <MESSAGE value="перенос в отдельную папку" />
+    <MESSAGE value="приборка" />
+    <MESSAGE value="fix" />
+    <MESSAGE value="fix - решение проблемы когда в центре при наведении меню выделяется первый элемент" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix - решение проблемы когда в центре при наведении меню выделяется первый элемент" />
+  </component>
+</project>

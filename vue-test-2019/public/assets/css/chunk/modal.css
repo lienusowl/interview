@@ -1,0 +1,194 @@
+.modal .modal-head {
+  position: relative;
+  display: block;
+  padding: 15px 15px;
+}
+.modal .modal-head h4 {
+  font-size: 20px;
+  font-weight: 400;
+}
+.modal .modal-head a.close {
+  display: block;
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: 15px;
+  right: 15px;
+}
+.modal .modal-head a.close svg {
+  display: block;
+  width: 15px;
+  height: 15px;
+}
+.modal .modal-head a.close svg path {
+  fill: #ccc;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.modal .modal-head a:hover svg path {
+  fill: #222;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.modal .modal-body {
+  position: relative;
+  display: block;
+}
+.modal-filter .modal-content {
+  padding: 5px;
+}
+.modal-filter .modal-body .date-change-block .field-block {
+  position: relative;
+}
+.modal-filter .modal-body .date-change-block .field-block label.label {
+  display: inline-block;
+  position: relative;
+  width: 30px;
+  height: 32px;
+  font-weight: 500;
+}
+.modal-filter .modal-body .date-change-block .field-block input.date-field {
+  display: inline-block;
+  border: none;
+  border-bottom: 1px solid #222;
+  position: relative;
+  padding: 5px 0;
+  width: calc(100% - 35px);
+}
+.modal-filter .modal-body .date-change-block .field-block svg.svg.calendar {
+  display: block;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  background: #fff;
+}
+.modal-filter .modal-body .filter-block {
+  padding: 30px 0 0 0;
+}
+.modal-filter .modal-body .filter-block h5 {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0 0 5px 0;
+  display: block;
+}
+.modal-filter .modal-body .filter-buttons {
+  margin: 30px 0 5px 0;
+}
+.modal-filter .modal-body .filter-buttons .col-md-6 {
+  padding: 0 5px;
+}
+.modal-filter .modal-body .filter-buttons .col-md-6:nth-child(1) {
+  padding-left: 0;
+}
+.modal-filter .modal-body .filter-buttons .col-md-6:nth-child(2) {
+  padding-right: 0;
+}
+.modal-filter .modal-body .filter-buttons .btn {
+  font-size: 12px;
+  display: block;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  border: 1px solid #222;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.modal-filter .modal-body .filter-buttons .btn.btn-clear {
+  border: 1px solid #b0b0b0;
+  color: #656565;
+}
+.modal-filter .modal-body .filter-buttons .btn.btn-green {
+  border: 1px solid #23a54f;
+  background: #23a54f;
+  color: #fff;
+}
+.modal-filter .modal-body .filter-buttons .btn:hover {
+  text-decoration: none;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.modal-filter .modal-body .filter-buttons .btn:hover.btn-clear {
+  border: 1px solid #222;
+  color: #222;
+}
+.modal-filter .modal-body .filter-buttons .btn:hover.btn-green {
+  background: #1f9246;
+  border: 1px solid #1f9246;
+}
+.modal-copy .modal-dialog {
+  width: 440px;
+}
+.modal-copy .modal-content {
+  padding: 5px;
+}
+.modal-copy .modal-body .show-text-for-copy {
+  display: block;
+  width: 100%;
+  height: 140px;
+  border: 1px solid #deddde;
+  background: #fafbfd;
+  overflow: hidden;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding: 15px;
+  font-size: 10px;
+  overflow-y: auto;
+}
+.modal-copy .modal-body .show-text-for-copy p {
+  font-size: 10px;
+  color: #000;
+  font-weight: 500;
+  line-height: 1.6em;
+}
+.modal-copy .modal-body .show-text-for-copy a {
+  font-size: 10px;
+  color: #23a54f;
+  text-decoration: underline;
+}
+.modal-copy .modal-body a.btn.btn-copy {
+  margin: 15px 0 15px 0;
+  display: block;
+  min-width: 160px;
+  text-align: center;
+  color: #b0b0b0;
+  border: 1px solid #b0b0b0;
+  padding: 10px 0;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  float: right;
+}
+.modal-copy .modal-body a.btn.btn-copy:hover {
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  text-decoration: none;
+  border: 1px solid #222;
+  color: #222;
+}
+/*# sourceMappingURL=modal.css.map */

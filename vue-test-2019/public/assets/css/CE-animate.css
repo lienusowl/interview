@@ -1,0 +1,300 @@
+/* reset */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+caption,
+tfoot,
+thead,
+th {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+}
+table {
+  border-collapse: collapse;
+}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
+  font-size: 14px;
+  font-weight: 400;
+  color: #222;
+  background: #fff;
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+  line-height: 1em;
+  padding: 0 0 0 0;
+}
+@media (min-width: 290px) and (max-width: 737px) {
+  body {
+    padding: 30px 0 0 0;
+  }
+}
+a,
+a:focus,
+a:active,
+input,
+input:focus,
+input:active,
+button,
+button:focus,
+button:active {
+  outline: none;
+}
+a {
+  color: #111;
+  text-decoration: none;
+}
+a:hover {
+  color: #333;
+  text-decoration: underline;
+}
+a:focus {
+  text-decoration: none;
+}
+a.blue-color {
+  color: #2a5fcb;
+}
+.clear {
+  clear: both;
+}
+.hidden {
+  display: none;
+}
+@media (min-width: 290px) and (max-width: 737px) {
+  .hidden-mobile {
+    display: none;
+  }
+}
+img {
+  max-width: 100%;
+}
+p {
+  line-height: 24px;
+  font-size: 14px;
+  color: #000;
+}
+h1 {
+  font-weight: bold;
+  font-size: 24px;
+  padding: 0 0 45px 0;
+  margin: 0 0 0 0;
+  line-height: 1em;
+  z-index: 10;
+  position: relative;
+}
+@media (min-width: 290px) and (max-width: 737px) {
+  h1 {
+    padding: 0 0 45px 0;
+    font-size: 18px;
+    line-height: 1.4em;
+  }
+}
+[tooltip] {
+  position: relative;
+  /* opinion 1 */
+  animation-delay: 1s;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
+}
+/* Applies to all tooltips */
+[tooltip]::before,
+[tooltip]::after {
+  text-transform: none;
+  /* opinion 2 */
+  font-size: 10px;
+  /* opinion 3 */
+  line-height: 1;
+  user-select: none;
+  position: absolute;
+  display: none;
+  opacity: 0;
+}
+[tooltip]::before {
+  content: '';
+  border: 5px solid transparent;
+  /* opinion 4 */
+  z-index: 1001;
+  /* absurdity 1 */
+}
+[tooltip]::after {
+  content: attr(tooltip);
+  /* magic! */
+  /* most of the rest of this is opinion */
+  font-size: 12px;
+  text-align: center;
+  /*
+    Let the content set the size of the tooltips
+    but this will also keep them from being obnoxious
+    */
+  min-width: 3em;
+  max-width: 21em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 1ch 1.5ch;
+  border-radius: 0.3ch;
+  box-shadow: 0 3px 30px rgba(34, 34, 34, 0.1);
+  background: #fff;
+  color: #222;
+  z-index: 1000;
+}
+/* Make the tooltips respond to hover */
+[tooltip]:hover::before,
+[tooltip]:hover::after {
+  display: block;
+}
+/* don't show empty tooltips */
+[tooltip='']::before,
+[tooltip='']::after {
+  display: none !important;
+}
+/* FLOW: DOWN */
+[tooltip][flow^="down"]::before {
+  top: calc(100% + 5px);
+  border-top-width: 0;
+  border-bottom-color: #fff;
+  animation-delay: 1s;
+}
+[tooltip][flow^="down"]::after {
+  top: calc(100% + 10px);
+  animation-delay: 1s;
+}
+[tooltip][flow^="down"]::before,
+[tooltip][flow^="down"]::after {
+  left: 50%;
+  transform: translate(-50%, 0.5em);
+  animation-delay: 1s;
+}
+@keyframes tooltips-vert {
+  50% {
+    opacity: 0;
+    transform: translate(0, 0);
+    animation-delay: 1s;
+  }
+  100% {
+    opacity: 0.9;
+    transform: translate(-50%, 0);
+  }
+}
+[tooltip]:not([flow]):hover::before,
+[tooltip]:not([flow]):hover::after,
+[tooltip][flow^="up"]:hover::before,
+[tooltip][flow^="up"]:hover::after,
+[tooltip][flow^="down"]:hover::before,
+[tooltip][flow^="down"]:hover::after {
+  animation: tooltips-vert 600ms ease-out forwards;
+}
+.custom-checkbox {
+  display: block;
+  position: relative;
+}
+.custom-checkbox label {
+  width: 100%;
+  color: #222;
+  position: relative;
+  padding: 15px 0 0 0;
+  display: block;
+}
+.custom-checkbox input[type="checkbox"] {
+  display: none;
+}
+.custom-checkbox input[type="checkbox"] + span,
+.custom-checkbox input[type="radio"] + span {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  outline: none;
+  margin: 0 0 0 0;
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+}
+.custom-checkbox input[type="checkbox"]:checked + span:before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 16px;
+  border: 0 solid #23a54f;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotateZ(45deg);
+  transform: rotateZ(45deg);
+  margin: -5px 5px;
+  pointer-events: none;
+}
+.custom-checkbox .label {
+  display: inline-block;
+  font-weight: 400;
+  color: #666;
+  width: 100%;
+  font-size: 14px;
+  padding: 0 0 0 30px;
+}
+@-webkit-keyframes load-rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+/*# sourceMappingURL=CE-animate.css.map */
