@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import "reset.css";
+
+body{
+    font-family: 'Open Sans', sans-serif;
+    background: #2d3748;
+}
+
+.container {
+    display: block;
+    margin: 0 auto;
+    max-width: 1200px;
+    position: relative;
+}
+.header{
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.header__logo{
+    color: #b3d4fc;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-size: 32px;
+    line-height: 45px;
+}
+.header__search{
+    height: 45px;
+    background: #2d3748;
+    border: none;
+    border-bottom: 1px solid #4a5568;
+    border-radius: 0;
+    color: #b3d4fc;
+    line-height: 45px;
+}
+
+.movies{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.movie{
+    position: relative;
+    width: 240px;
+    margin: 15px;
+}
+
+.movie .movie__cover-inner{
+    position: relative;
+    height: 360px;
+    transition: all .3s;
+}
+.movie .movie__cover-inner img{
+    height: 100%;
+    width: 100%;
+}
+.movie .movie__cover-inner .movie__cover-darkened{
+    position: absolute;
+    background: #0000004f;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    transition: all .3s;
+}
+.movie .movie__cover-inner:hover .movie__cover-darkened{
+    transition: all .3s;
+    background: transparent;
+    cursor: pointer;
+}
+
+.movie .movie__info{
+
+}
+.movie .movie__info .movie__title{
+    font-size: 18px;
+    color: #fff;
+    padding: 10px 0;
+    font-weight: 600;
+}
+.movie .movie__info .movie__category{
+    color: bisque;
+}
+.movie .movie__info .movie__average{
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    border-radius: 50%;
+    color: #fff;
+    background: #000;
+    display: block;
+    font-size: 0.8em;
+    z-index: 10;
+}
+
+.movie__average--green{
+    border: 1px solid green;
+}
+.movie__average--yellow{
+    border: 1px solid yellow;
+}
+.movie__average--red{
+    border: 1px solid red;
+}
+.movie__average--none{
+    display: none !important;
+}
+
+
+
